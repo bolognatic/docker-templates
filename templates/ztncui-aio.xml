@@ -67,24 +67,27 @@
 
   <Network Default="bridge">bridge</Network>
 
+  <Config Type="Port" Name="JSON API Port" Target="9993" Default="9993" Mode="udp" Display="always-hide" Required="false"
+       Description="This is ztncui-aio's JSON API port you can access via a ZeroTier client.">9993</Config>
+
   <Config Type="Port" Name="HTTPS Web Interface Port" Target="3443" Default="3443" Mode="tcp" Display="always-hide" Required="false"
        Description="This is ztncui-aio's HTTPS Web UI port you can access via a web browser.">3443</Config>
 
-  <Config Type="Port" Name="HTTP Web Interface Port" Target="3180" Default="3180" Mode="tcp" Display="advanced-hide" Required="false"
+  <Config Type="Port" Name="HTTP Web Interface Port" Target="3180" Default="3180" Mode="tcp" Display="always-hide" Required="false"
        Description="This is ztncui-aio's HTTP Web UI port you can access via a web browser.">3180</Config>
 
-  <Config Type="Variable" Name="Node Environment" Target="NODE_ENV" Default="production" Mode="" Display="advanced-hide" Required="true"
+  <Config Type="Variable" Name="Node Environment" Target="NODE_ENV" Default="production" Mode="" Display="always-hide" Required="true"
        Description="To run the server in production mode set to 'production', Without this, the template engine always re-compiles the pug file when rendering (taking ~200 ms!)">production</Config>
 
-  <Config Type="Variable" Name="ztncui Password" Target="ZTNCUI_PASSWD" Default="zeropassword" Mode="" Display="advanced-hide" Required="false" Mask="false"
+  <Config Type="Variable" Name="ztncui Password" Target="ZTNCUI_PASSWD" Default="zeropassword" Mode="" Display="always-hide" Required="false" Mask="false"
        Description=""></Config>
 
   <Config Type="Variable" Name="IP Address" Target="MYADDR" Default="127.0.0.1" Mode="" Display="advanced-hide" Required="true"
-       Description=""></Config>
+       Description="WARNING: IF YOU DO NOT SET PASSWORD, YOU HAVE TO USE 'docker exec -it <CONTAINER NAME> bash' and then 'cat /var/log/docker-ztncui.log' to get your random password."></Config>
 
-  <Config Type="Path" Name="ZeroTier One Path" Target="/var/lib/zerotier-one" Default="/mnt/user/appdata/ztncui-aio/zt1" Mode="rw" Display="advanced-hide" Required="true"
+  <Config Type="Path" Name="ZeroTier One Path" Target="/var/lib/zerotier-one" Default="/mnt/user/appdata/ztncui-aio/zt1" Mode="rw" Display="always-hide" Required="true"
        Description="This is where ztncui-aio will store its configuration.">/mnt/user/appdata/ztncui-aio/zt1</Config>
   
-  <Config Type="Path" Name="ztncui Path" Target="/opt/key-networks/ztncui/etc" Default="/mnt/user/appdata/ztncui-aio/ztncui" Mode="rw" Display="advanced-hide" Required="true"
+  <Config Type="Path" Name="ztncui Path" Target="/opt/key-networks/ztncui/etc" Default="/mnt/user/appdata/ztncui-aio/ztncui" Mode="rw" Display="always-hide" Required="true"
        Description="This is where ztncui-aio will store its configuration.">/mnt/user/appdata/ztncui-aio/ztncui</Config>
 </Container>

@@ -39,11 +39,16 @@
     <Mode>bridge</Mode>
     <Publish>
       <Port>
+        <HostPort>9993</HostPort>
+        <ContainerPort>9993</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
         <HostPort>3443</HostPort>
         <ContainerPort>3443</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
-      <Port>
+	  <Port>
         <HostPort>3180</HostPort>
         <ContainerPort>3180</ContainerPort>
         <Protocol>tcp</Protocol>
@@ -67,19 +72,19 @@
 
   <Network Default="bridge">bridge</Network>
 
-  <Config Type="Variable" Name="HTTPS_HOST" Target="HTTPS_HOST" Default="" Mode="" Display="always-hide" Required="false"
+  <Config Type="Variable" Name="HTTPS_HOST" Target="HTTPS_HOST" Default="" Mode="" Display="advanced-hide" Required="false"
        Description="Setting this will make ztncui only listen on HTTPS_HOST:HTTPS_PORT"></Config>
 	   
   <Config Type="Variable" Name="HTTP_ALL_INTERFACES" Target="HTTP_ALL_INTERFACES" Default="" Mode="" Display="advanced-hide" Required="false"
        Description="Listen on all interfaces, useful for reverse proxy, HTTP only."></Config>
   
-  <Config Type="Port" Name="JSON API Port" Target="9993" Default="9993" Mode="udp" Display="always-hide" Required="false"
+  <Config Type="Port" Name="JSON API Port" Target="9993" Default="9993" Mode="udp" Display="advanced-hide" Required="false"
        Description="This is ztncui-aio's JSON API port you can access via a ZeroTier client.">9993</Config>
 
-  <Config Type="Port" Name="HTTPS Web Interface Port" Target="3443" Default="3443" Mode="tcp" Display="always-hide" Required="false"
+  <Config Type="Port" Name="HTTPS Web Interface Port" Target="3443" Default="3443" Mode="tcp" Display="advanced-hide" Required="false"
        Description="This is ztncui-aio's HTTPS Web UI port you can access via a web browser.">3443</Config>
 
-  <Config Type="Port" Name="HTTP Web Interface Port" Target="3180" Default="3180" Mode="tcp" Display="always-hide" Required="false"
+  <Config Type="Port" Name="HTTP Web Interface Port" Target="3180" Default="3180" Mode="tcp" Display="advanced-hide" Required="false"
        Description="This is ztncui-aio's HTTP Web UI port you can access via a web browser.">3180</Config>
 
   <Config Type="Variable" Name="Node Environment" Target="NODE_ENV" Default="production" Mode="" Display="always-hide" Required="true"
@@ -88,10 +93,10 @@
   <Config Type="Variable" Name="ztncui Password" Target="ZTNCUI_PASSWD" Default="zeropassword" Mode="" Display="always-hide" Required="false" Mask="true"
        Description="WARNING: IF YOU DO NOT SET A PASSWORD, YOU HAVE TO USE 'docker exec -it CONTAINER_NAME bash' then 'cat /var/log/docker-ztncui.log' to get your generated password."></Config>
 
-  <Config Type="Variable" Name="IP Address" Target="MYADDR" Default="0.0.0.0" Mode="" Display="advanced-hide" Required="true"
-       Description="IP Address for ztncui's docker container.">0.0.0.0</Config>
+  <Config Type="Variable" Name="IP Address" Target="MYADDR" Default="" Mode="" Display="always-hide" Required="true"
+       Description="IP Address for ztncui's docker container."></Config>
 	   
-  <Config Type="Variable" Name="Domain Name" Target="MYDOMAIN" Default="ztncui.docker.local" Mode="" Display="always-hide" Required="false"
+  <Config Type="Variable" Name="Domain Name" Target="MYDOMAIN" Default="" Mode="" Display="always-hide" Required="false"
        Description="Fully Qualified Domain Name for setting or generating TLS certificates/keys."></Config>
 
   <Config Type="Path" Name="ZeroTier One Path" Target="/var/lib/zerotier-one" Default="/mnt/user/appdata/ztncui-aio/zt1" Mode="rw" Display="advanced-hide" Required="true"

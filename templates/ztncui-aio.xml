@@ -36,13 +36,8 @@
   <Privileged>false</Privileged>
   <Environment/>
   <Networking>
-    <Mode>bridge</Mode>
+    <Mode>host</Mode>
     <Publish>
-      <Port>
-        <HostPort>9993</HostPort>
-        <ContainerPort>9993</ContainerPort>
-        <Protocol>udp</Protocol>
-      </Port>
       <Port>
         <HostPort>3443</HostPort>
         <ContainerPort>3443</ContainerPort>
@@ -70,16 +65,13 @@
   <WebUI>https://[IP]:[PORT:3443]/</WebUI>
   <Icon>https://raw.githubusercontent.com/bolognatic/docker-templates/main/images/zerotier_ico.png</Icon>
 
-  <Network Default="bridge">bridge</Network>
+  <Network Default="host">host</Network>
 
   <Config Type="Variable" Name="HTTPS_HOST" Target="HTTPS_HOST" Default="" Mode="" Display="advanced-hide" Required="false"
        Description="Setting this will make ztncui only listen on HTTPS_HOST:HTTPS_PORT"></Config>
 	   
   <Config Type="Variable" Name="HTTP_ALL_INTERFACES" Target="HTTP_ALL_INTERFACES" Default="" Mode="" Display="advanced-hide" Required="false"
        Description="Listen on all interfaces, useful for reverse proxy, HTTP only."></Config>
-  
-  <Config Type="Port" Name="JSON API Port" Target="9993" Default="9993" Mode="udp" Display="advanced-hide" Required="false"
-       Description="This is ztncui-aio's JSON API port you can access via a ZeroTier client.">9993</Config>
 
   <Config Type="Port" Name="HTTPS Web Interface Port" Target="3443" Default="3443" Mode="tcp" Display="advanced-hide" Required="false"
        Description="This is ztncui-aio's HTTPS Web UI port you can access via a web browser.">3443</Config>

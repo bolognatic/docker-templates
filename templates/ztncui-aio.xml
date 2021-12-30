@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <Name>ztncui-aio</Name>
+  <Description>
+  	Docker image that contains ZeroTier One and ztncui to set up a standalone ZeroTier network controller with a web user interface in a container.
+  </Description>
+  <Overview>
+	Docker image that contains ZeroTier One and ztncui to set up a standalone ZeroTier network controller with a web user interface in a container.
+  
+  	Zerotier is an open source, cross-platform virtual LAN / VPN.
+    It allows remote access to devices as if they all reside in the same local network.
+    All traffic is encrypted end-to-end and takes the most direct path available for minimum latency and maximum performance, using VPN-like connections.
+    After installing up Zerotier on unRaid and any other devices - a VPN connection will be set up and all connected devices will be available to each other like they are in the same network.
+    SMB shares, TimeMachine will be autodetected and UIs will be accessible on regular hostnames and ports.
+  </Overview>
+  <Project>https://www.zerotier.com/</Project>
+  <Support></Support>
+  <Registry>https://hub.docker.com/r/kmahyyg/ztncui-aio</Registry>
+  <GitHub>https://github.com/kmahyyg/ztncui-aio.git</GitHub>
+  <Repository>kmahyyg/ztncui-aio</Repository>
+  <BaseImage>ghcr.io/kmahyyg/ztncui-aio:latest</BaseImage>
+  <WebUI>https://[IP]:[PORT:3443]</WebUI>
+  <Banner>https://raw.githubusercontent.com/Spikhalskiy/docker-templates/master/images/zerotier_ico.png</Banner>
+  <Icon>https://raw.githubusercontent.com/Spikhalskiy/docker-templates/master/images/zerotier_ico.png</Icon>
+  <Category>Network:DNS Network:Management Network:VPN</Category>
+  <Date>2021-12-30</Date>
+  <Version>1.0</Version>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+  </Networking>
+  <!-- Variable Mappings -->
+  <Config Name="NODE_ENV" Target="NODE_ENV" Default="production" Mode="" Description="https://pugjs.org/api/express.html" Type="Variable" Display="always-hide" Required="true" Mask="false"/>
+  <Config Name="HTTPS_HOST" Target="HTTPS_HOST" Default="" Mode="" Description="Only Listen on HTTPS_HOST:HTTPS_PORT" Type="Variable" Display="always-hide" Required="false" Mask="false"/>
+  <Config Name="HTTPS_PORT" Target="HTTPS_PORT" Default="3443" Mode="tcp" Description="HTTPS_PORT" Type="Port" Display="always-hide" Required="false" Mask="false"/>
+  <Config Name="HTTP_PORT" Target="HTTP_PORT" Default="3000" Mode="tcp" Description="HTTP_PORT" Type="Port" Display="always-hide" Required="false" Mask="false"/>
+  <Config Name="HTTP_ALL_INTERFACES" Target="HTTP_ALL_INTERFACES" Default="" Mode="" Description="Listen on all interfaces, useful for reverse proxy, HTTP only" Type="Variable" Display="always-hide" Required="false" Mask="false"/>
+  <Config Name="ZTNCUI_PASSWD" Target="ZTNCUI_PASSWD" Default="password" Mode="" Description="generate admin password on the fly (if not exists)" Type="Variable" Display="always-hide" Required="false" Mask="true"/>
+  <Config Name="MYDOMAIN" Target="" Default="ztncui.docker.test" Mode="" Description="generate TLS certs on the fly (if not exists)" Type="Variable" Display="always-hide" Required="false" Mask="false"/>
+  <Config Name="MYADDR" Target="" Default="ztncui.docker.test" Mode="" Description="your ip address, public ip address preferred" Type="Variable" Display="always-hide" Required="true" Mask="false"/>
+  <!-- Volume Mappings -->
+  <Config Name="Config Directory" Target="/opt/key-networks/ztncui/etc" Default="/mnt/user/appdata/ztncui-aio/ztncui" Mode="rw" Description="Path to persist ZeroTier state across restarts of the container." Type="Path" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="Config Directory" Target="/var/lib/zerotier-one" Default="/mnt/user/appdata/ztncui-aio/zt1" Mode="rw" Description="Path to persist ZeroTier state across restarts of the container." Type="Path" Display="advanced-hide" Required="true" Mask="false"/>
+  <ExtraParams/>
+  <PostArgs/>
+  <Changes>
+    [font size=4]2021.12.30[/font]
+    - Initial Release
+  </Changes>
+</Containers>

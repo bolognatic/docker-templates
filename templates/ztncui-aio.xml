@@ -77,7 +77,7 @@
        Description="To run the server in production mode set to 'production', Without this, the template engine always re-compiles the pug file when rendering (taking ~200 ms!)">production</Config>
 
   <Config Type="Variable" Name="ztncui Password" Target="ZTNCUI_PASSWD" Default="zeropassword" Mode="" Display="advanced-hide" Required="false" Mask="false"
-       Description="WARNING: IF YOU DO NOT SET PASSWORD, YOU HAVE TO USE docker exec -it <CONTAINER NAME> bash, and then cat /var/log/docker-ztncui.log to get your random password. This is gatekeeper."></Config>
+       Description=""></Config>
 
   <Config Type="Variable" Name="IP Address" Target="MYADDR" Default="127.0.0.1" Mode="" Display="advanced-hide" Required="true"
        Description=""></Config>

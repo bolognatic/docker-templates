@@ -83,7 +83,7 @@
        Description=""></Config>
 
   <Config Type="Variable" Name="IP Address" Target="MYADDR" Default="127.0.0.1" Mode="" Display="always-hide" Required="true"
-       Description="WARNING: IF YOU DO NOT SET PASSWORD, YOU HAVE TO USE 'docker exec -it &lt;CONTAINER NAME&gt; bash' and then 'cat /var/log/docker-ztncui.log' to get your random password."></Config>
+       Description="WARNING: IF YOU DO NOT SET PASSWORD, YOU HAVE TO USE 'docker exec -it &lt; CONTAINER NAME &gt; bash' and then 'cat /var/log/docker-ztncui.log' to get your random password."></Config>
 	   
   <Config Type="Variable" Name="Domain Name" Target="MYDOMAIN" Default="ztncui.docker.test" Mode="" Display="always-hide" Required="false"
        Description=""></Config>

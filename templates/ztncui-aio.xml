@@ -67,11 +67,11 @@
 
   <Network Default="bridge">bridge</Network>
 
-  <Config Type="Variable" Name="HTTPS_HOST" Target="HTTPS_HOST" Default="0.0.0.0" Mode="" Display="always-hide" Required="false"
-       Description="Setting this will make ztncui only listen on HTTPS_HOST:HTTPS_PORT">0.0.0.0</Config>
+  <Config Type="Variable" Name="HTTPS_HOST" Target="HTTPS_HOST" Default="" Mode="" Display="always-hide" Required="false"
+       Description="Setting this will make ztncui only listen on HTTPS_HOST:HTTPS_PORT"></Config>
 	   
-  <Config Type="Variable" Name="HTTP_ALL_INTERFACES" Target="HTTP_ALL_INTERFACES" Default="no" Mode="" Display="always-hide" Required="false"
-       Description="Listen on all interfaces, useful for reverse proxy, HTTP only.">no</Config>
+  <Config Type="Variable" Name="HTTP_ALL_INTERFACES" Target="HTTP_ALL_INTERFACES" Default="" Mode="" Display="advanced-hide" Required="false"
+       Description="Listen on all interfaces, useful for reverse proxy, HTTP only."></Config>
   
   <Config Type="Port" Name="JSON API Port" Target="9993" Default="9993" Mode="udp" Display="always-hide" Required="false"
        Description="This is ztncui-aio's JSON API port you can access via a ZeroTier client.">9993</Config>

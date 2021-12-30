@@ -67,6 +67,12 @@
 
   <Network Default="bridge">bridge</Network>
 
+  <Config Type="Variable" Name="HTTPS_HOST" Target="HTTPS_HOST" Default="0.0.0.0" Mode="" Display="always-hide" Required="false"
+       Description="Setting this will make ztncui only listen on HTTPS_HOST:HTTPS_PORT">0.0.0.0</Config>
+	   
+  <Config Type="Variable" Name="HTTP_ALL_INTERFACES" Target="HTTP_ALL_INTERFACES" Default="no" Mode="" Display="always-hide" Required="false"
+       Description="Listen on all interfaces, useful for reverse proxy, HTTP only.">no</Config>
+  
   <Config Type="Port" Name="JSON API Port" Target="9993" Default="9993" Mode="udp" Display="always-hide" Required="false"
        Description="This is ztncui-aio's JSON API port you can access via a ZeroTier client.">9993</Config>
 
@@ -77,20 +83,20 @@
        Description="This is ztncui-aio's HTTP Web UI port you can access via a web browser.">3180</Config>
 
   <Config Type="Variable" Name="Node Environment" Target="NODE_ENV" Default="production" Mode="" Display="always-hide" Required="true"
-       Description="To run the server in production mode set to 'production', Without this, the template engine always re-compiles the pug file when rendering (taking ~200 ms!)">production</Config>
+       Description="To run the server in production mode set this environment variable to 'production'. Without this, the template engine always re-compiles the pug file when rendering, (taking ~200 ms!).">production</Config>
 
   <Config Type="Variable" Name="ztncui Password" Target="ZTNCUI_PASSWD" Default="zeropassword" Mode="" Display="always-hide" Required="false" Mask="true"
-       Description=""></Config>
+       Description="WARNING: IF YOU DO NOT SET A PASSWORD, YOU HAVE TO USE 'docker exec -it CONTAINER_NAME bash' then 'cat /var/log/docker-ztncui.log' to get your generated password."></Config>
 
-  <Config Type="Variable" Name="IP Address" Target="MYADDR" Default="127.0.0.1" Mode="" Display="always-hide" Required="true"
-       Description="WARNING: IF YOU DO NOT SET PASSWORD, YOU HAVE TO USE docker exec -it &lt;CONTAINER NAME&gt; bash and then cat /var/log/docker-ztncui.log to get your random password."></Config>
+  <Config Type="Variable" Name="IP Address" Target="MYADDR" Default="0.0.0.0" Mode="" Display="advanced-hide" Required="true"
+       Description="IP Address for ztncui's docker container.">0.0.0.0</Config>
 	   
-  <Config Type="Variable" Name="Domain Name" Target="MYDOMAIN" Default="ztncui.docker.test" Mode="" Display="always-hide" Required="false"
-       Description=""></Config>
+  <Config Type="Variable" Name="Domain Name" Target="MYDOMAIN" Default="ztncui.docker.local" Mode="" Display="always-hide" Required="false"
+       Description="Fully Qualified Domain Name for setting or generating TLS certificates/keys."></Config>
 
-  <Config Type="Path" Name="ZeroTier One Path" Target="/var/lib/zerotier-one" Default="/mnt/user/appdata/ztncui-aio/zt1" Mode="rw" Display="always-hide" Required="true"
+  <Config Type="Path" Name="ZeroTier One Path" Target="/var/lib/zerotier-one" Default="/mnt/user/appdata/ztncui-aio/zt1" Mode="rw" Display="advanced-hide" Required="true"
        Description="This is where ztncui-aio will store its configuration.">/mnt/user/appdata/ztncui-aio/zt1</Config>
   
-  <Config Type="Path" Name="ztncui Path" Target="/opt/key-networks/ztncui/etc" Default="/mnt/user/appdata/ztncui-aio/ztncui" Mode="rw" Display="always-hide" Required="true"
+  <Config Type="Path" Name="ztncui Path" Target="/opt/key-networks/ztncui/etc" Default="/mnt/user/appdata/ztncui-aio/ztncui" Mode="rw" Display="advanced-hide" Required="true"
        Description="This is where ztncui-aio will store its configuration.">/mnt/user/appdata/ztncui-aio/ztncui</Config>
 </Container>

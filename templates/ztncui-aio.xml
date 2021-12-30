@@ -79,7 +79,7 @@
   <Config Type="Variable" Name="Node Environment" Target="NODE_ENV" Default="production" Mode="" Display="always-hide" Required="true"
        Description="To run the server in production mode set to 'production', Without this, the template engine always re-compiles the pug file when rendering (taking ~200 ms!)">production</Config>
 
-  <Config Type="Variable" Name="ztncui Password" Target="ZTNCUI_PASSWD" Default="zeropassword" Mode="" Display="always-hide" Required="false" Mask="false"
+  <Config Type="Variable" Name="ztncui Password" Target="ZTNCUI_PASSWD" Default="zeropassword" Mode="" Display="always-hide" Required="false" Mask="true"
        Description=""></Config>
 
   <Config Type="Variable" Name="IP Address" Target="MYADDR" Default="127.0.0.1" Mode="" Display="always-hide" Required="true"

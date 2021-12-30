@@ -83,7 +83,7 @@
        Description=""></Config>
 
   <Config Type="Variable" Name="IP Address" Target="MYADDR" Default="127.0.0.1" Mode="" Display="advanced-hide" Required="true"
-       Description="WARNING: IF YOU DO NOT SET PASSWORD, YOU HAVE TO USE 'docker exec -it <CONTAINER NAME> bash' and then 'cat /var/log/docker-ztncui.log' to get your random password."></Config>
+       Description="WARNING: IF YOU DO NOT SET PASSWORD, YOU HAVE TO USE 'docker exec -it &lt;CONTAINER NAME&gt; bash' and then 'cat /var/log/docker-ztncui.log' to get your random password."></Config>
 
   <Config Type="Path" Name="ZeroTier One Path" Target="/var/lib/zerotier-one" Default="/mnt/user/appdata/ztncui-aio/zt1" Mode="rw" Display="always-hide" Required="true"
        Description="This is where ztncui-aio will store its configuration.">/mnt/user/appdata/ztncui-aio/zt1</Config>
